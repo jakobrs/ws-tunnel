@@ -45,6 +45,6 @@ async fn handle_stream(mut stream: TcpStream, peer: SocketAddr, opts: &Opts) -> 
 
 async fn anyhow_wrapper(fut: impl Future<Output = anyhow::Result<()>>) {
     if let Err(err) = fut.await {
-        eprintln!("{err:?}");
+        log::error!("{err:?}");
     }
 }
